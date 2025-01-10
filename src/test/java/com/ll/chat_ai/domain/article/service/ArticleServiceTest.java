@@ -1,13 +1,11 @@
 package com.ll.chat_ai.domain.article.service;
 
-import com.ll.chat_ai.domain.article.article.entity.Article;
-import com.ll.chat_ai.domain.article.article.entity.ArticleComment;
-import com.ll.chat_ai.domain.article.article.entity.ArticleTag;
-import com.ll.chat_ai.domain.article.article.service.ArticleCommentService;
-import com.ll.chat_ai.domain.article.article.service.ArticleService;
-import com.ll.chat_ai.domain.article.article.service.ArticleTagService;
-import com.ll.chat_ai.domain.member.member.entity.Member;
-import com.ll.chat_ai.domain.member.member.service.MemberService;
+import com.ll.chat_ai.domain.article.dto.ArticleDto;
+import com.ll.chat_ai.domain.article.entity.Article;
+import com.ll.chat_ai.domain.article.entity.ArticleComment;
+import com.ll.chat_ai.domain.article.entity.ArticleTag;
+import com.ll.chat_ai.domain.member.entity.Member;
+import com.ll.chat_ai.domain.member.service.MemberService;
 import com.ll.chat_ai.global.RsData.RsData;
 import com.ll.chat_ai.global.util.Ut;
 import org.junit.jupiter.api.DisplayName;
@@ -38,11 +36,8 @@ public class ArticleServiceTest {
     @DisplayName("글 쓰기")
     @Test
     void t1() {
-        RsData<Article> writeRs = articleService.write(1, "제목", "내용");
-        RsData<Article> writeRs2 = articleService.write(1, "제목1", "내용");
-        Article article = writeRs.getData();
-
-        assertThat(article.getId()).isGreaterThan(0L);
+        Article writeRs = articleService.write("제목", "내용");
+        Article writeRs2 = articleService.write( "제목1", "내용");
     }
 
     @DisplayName("1번 글을 가져온다.")
@@ -65,8 +60,6 @@ public class ArticleServiceTest {
     @Test
     void t4() {
         Article article = articleService.findById(1L).get();
-
-        Ut.thread.sleep(1000);
 
         articleService.modify(article, "수정된 제목", "수정된 내용");
 

@@ -1,14 +1,14 @@
 package com.ll.chat_ai.global.initData;
 
-import com.ll.chat_ai.domain.article.article.entity.Article;
-import com.ll.chat_ai.domain.article.article.repository.ArticleRepository;
-import com.ll.chat_ai.domain.article.article.service.ArticleService;
+import com.ll.chat_ai.domain.article.entity.Article;
+import com.ll.chat_ai.domain.article.repository.ArticleRepository;
+import com.ll.chat_ai.domain.article.service.ArticleService;
 import com.ll.chat_ai.domain.chat.chatMessage.service.ChatMessageService;
 import com.ll.chat_ai.domain.chat.chatRoom.dto.request.RequestCreateRoom;
 import com.ll.chat_ai.domain.chat.chatRoom.entity.ChatRoom;
 import com.ll.chat_ai.domain.chat.chatRoom.service.ChatRoomService;
-import com.ll.chat_ai.domain.member.member.entity.Member;
-import com.ll.chat_ai.domain.member.member.service.MemberService;
+import com.ll.chat_ai.domain.member.entity.Member;
+import com.ll.chat_ai.domain.member.service.MemberService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -38,16 +38,16 @@ public class NotProd {
 //                chatMessageService.make(1, "황민지", "공부 메시지" + num);
 //            });
 
-                Member member1 = memberService.join("user1", "1234").getData();
-                Member member2 = memberService.join("user2", "1234").getData();
-                Member member3 = memberService.join("user3", "1234").getData();
+                Member member1 = memberService.join("user1", "1234");
+                Member member2 = memberService.join("user2", "1234");
+                Member member3 = memberService.join("user3", "1234");
 
-                Article article1 = articleService.write(member1.getId(), "제목1", "내용1").getData();
+                Article article1 = articleService.write("제목1", "내용1");
                 System.out.println("article1= " + article1.toString());
-                Article article2 = articleService.write(member1.getId(), "제목2", "내용2").getData();
+                Article article2 = articleService.write("제목2", "내용2");
 
-                Article article3 = articleService.write(member2.getId(), "제목3", "내용3").getData();
-                Article article4 = articleService.write(member2.getId(), "제목4", "내용4").getData();
+                Article article3 = articleService.write("제목3", "내용3");
+                Article article4 = articleService.write("제목4", "내용4");
 
                 article1.addComment(member1, "댓글1");
                 article1.addComment(member1, "댓글2");

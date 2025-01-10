@@ -1,8 +1,6 @@
 package com.ll.chat_ai.domain.member.service;
 
-import com.ll.chat_ai.domain.member.member.service.MemberService;
-import com.ll.chat_ai.global.RsData.RsData;
-import com.ll.chat_ai.domain.member.member.entity.Member;
+import com.ll.chat_ai.domain.member.entity.Member;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +20,7 @@ public class MemberServiceTest {
     @DisplayName("회원가입")
     @Test
     void t1() {
-        RsData<Member> joinRs = memberService.join("user1", "1234");
-        Member member = joinRs.getData();
+        Member member = memberService.join("user1", "1234");
         assertThat(member.getId()).isGreaterThan(0L);
     }
 }

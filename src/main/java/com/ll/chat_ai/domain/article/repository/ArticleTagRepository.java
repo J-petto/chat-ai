@@ -1,6 +1,6 @@
-package com.ll.chat_ai.domain.article.article.repository;
+package com.ll.chat_ai.domain.article.repository;
 
-import com.ll.chat_ai.domain.article.article.entity.ArticleTag;
+import com.ll.chat_ai.domain.article.entity.ArticleTag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

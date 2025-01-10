@@ -1,5 +1,6 @@
-package com.ll.chat_ai.domain.article.article.entity;
+package com.ll.chat_ai.domain.article.entity;
 
+import com.ll.chat_ai.domain.member.entity.Member;
 import com.ll.chat_ai.global.baseEntity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,10 +17,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ArticleTag extends BaseEntity {
+public class ArticleComment extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Article article;
 
-    private String content;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member author;
+
+    private String body;
 }

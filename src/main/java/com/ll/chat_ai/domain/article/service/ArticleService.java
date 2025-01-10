@@ -1,10 +1,9 @@
-package com.ll.chat_ai.domain.article.article.service;
+package com.ll.chat_ai.domain.article.service;
 
-import com.ll.chat_ai.domain.article.article.entity.Article;
-import com.ll.chat_ai.domain.article.article.entity.ArticleComment;
-import com.ll.chat_ai.domain.article.article.repository.ArticleRepository;
-import com.ll.chat_ai.domain.member.member.entity.Member;
-import com.ll.chat_ai.global.RsData.RsData;
+import com.ll.chat_ai.domain.article.entity.Article;
+import com.ll.chat_ai.domain.article.entity.ArticleComment;
+import com.ll.chat_ai.domain.article.repository.ArticleRepository;
+import com.ll.chat_ai.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,15 +18,14 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
 
     @Transactional
-    public RsData<Article> write(long no, String title, String content) {
+    public Article write(String title, String content) {
         Article article = Article.builder()
-                .author(Member.builder().id(no).build())
+                .author(Member.builder().id(1L).build())
                 .title(title)
                 .content(content)
                 .build();
-        articleRepository.save(article);
 
-        return RsData.of("200", String.format("%s 게시글 등록", title), article);
+        return articleRepository.save(article);
     }
 
     public Optional<Article> findById(long no) {
@@ -35,9 +33,11 @@ public class ArticleService {
     }
 
     @Transactional
-    public void modify(Article article, String title, String content) {
+    public Article modify(Article article, String title, String content) {
         article.setTitle(title);
         article.setContent(content);
+
+        return article;
     }
 
     @Transactional
@@ -47,5 +47,10 @@ public class ArticleService {
 
     public List<Article> findAll() {
         return articleRepository.findAll();
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        articleRepository.deleteById(id);
     }
 }

@@ -1,6 +1,6 @@
-package com.ll.chat_ai.domain.article.article.entity;
+package com.ll.chat_ai.domain.article.entity;
 
-import com.ll.chat_ai.domain.member.member.entity.Member;
+import com.ll.chat_ai.domain.member.entity.Member;
 import com.ll.chat_ai.global.baseEntity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
