@@ -1,7 +1,7 @@
-package com.ll.chat_ai.domain.article.article.service;
+package com.ll.chat_ai.domain.article.article.articleComment.service;
 
-import com.ll.chat_ai.domain.article.article.entity.ArticleComment;
-import com.ll.chat_ai.domain.article.article.repository.ArticleCommentRepository;
+import com.ll.chat_ai.domain.article.article.articleComment.entity.ArticleComment;
+import com.ll.chat_ai.domain.article.article.articleComment.repository.ArticleCommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

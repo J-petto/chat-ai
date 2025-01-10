@@ -1,7 +1,7 @@
 package com.ll.chat_ai.domain.chat.chatRoom.entity;
 
 import com.ll.chat_ai.domain.chat.chatMessage.entity.ChatMessage;
-import com.ll.chat_ai.global.baseEntity.BaseEntity;
+import com.ll.chat_ai.global.jpa.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;

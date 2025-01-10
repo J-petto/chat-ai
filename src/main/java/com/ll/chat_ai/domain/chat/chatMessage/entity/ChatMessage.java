@@ -2,7 +2,7 @@ package com.ll.chat_ai.domain.chat.chatMessage.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ll.chat_ai.domain.chat.chatRoom.entity.ChatRoom;
-import com.ll.chat_ai.global.baseEntity.BaseEntity;
+import com.ll.chat_ai.global.jpa.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;

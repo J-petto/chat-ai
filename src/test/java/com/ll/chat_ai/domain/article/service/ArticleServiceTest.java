@@ -1,11 +1,10 @@
 package com.ll.chat_ai.domain.article.service;
 
 import com.ll.chat_ai.domain.article.article.entity.Article;
-import com.ll.chat_ai.domain.article.article.entity.ArticleComment;
-import com.ll.chat_ai.domain.article.article.entity.ArticleTag;
-import com.ll.chat_ai.domain.article.article.service.ArticleCommentService;
+import com.ll.chat_ai.domain.article.article.articleTag.entity.ArticleTag;
+import com.ll.chat_ai.domain.article.article.articleComment.service.ArticleCommentService;
+import com.ll.chat_ai.domain.article.article.articleTag.service.ArticleTagService;
 import com.ll.chat_ai.domain.article.article.service.ArticleService;
-import com.ll.chat_ai.domain.article.article.service.ArticleTagService;
 import com.ll.chat_ai.domain.member.member.entity.Member;
 import com.ll.chat_ai.domain.member.member.service.MemberService;
 import com.ll.chat_ai.global.RsData.RsData;

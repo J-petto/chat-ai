@@ -3,6 +3,9 @@ server:
 spring:
   thymeleaf:
     cache: false
+    prefix: classpath:/templates/
+    suffix: .html                 # 파일 확장자
+    check-template-location: true
   profiles:
     active: dev
     include: secret

@@ -4,8 +4,6 @@ import com.ll.chat_ai.domain.article.article.entity.Article;
 import com.ll.chat_ai.domain.article.article.repository.ArticleRepository;
 import com.ll.chat_ai.domain.article.article.service.ArticleService;
 import com.ll.chat_ai.domain.chat.chatMessage.service.ChatMessageService;
-import com.ll.chat_ai.domain.chat.chatRoom.dto.request.RequestCreateRoom;
-import com.ll.chat_ai.domain.chat.chatRoom.entity.ChatRoom;
 import com.ll.chat_ai.domain.chat.chatRoom.service.ChatRoomService;
 import com.ll.chat_ai.domain.member.member.entity.Member;
 import com.ll.chat_ai.domain.member.member.service.MemberService;
@@ -15,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.stream.IntStream;
 
 @Configuration
 @Profile("!prod")
@@ -30,7 +30,7 @@ public class NotProd {
             @Transactional
             @Override
             public void run(ApplicationArguments args) throws Exception {
-                ChatRoom chatRoom1 = chatRoomService.create(new RequestCreateRoom("공부"));
+//            ChatRoom chatRoom1 = chatRoomService.create(new RequestCreateRoom("공부"));
 //            ChatRoom chatRoom2 = chatRoomService.create(new RequestCreateRoom("식사"));
 //            ChatRoom chatRoom3 = chatRoomService.create(new RequestCreateRoom("휴식"));
 //
@@ -69,6 +69,14 @@ public class NotProd {
                 article1.addTag("백엔드");
                 article2.addTags("프레임워크", "스프링부트");
                 article4.addTags("자바", "스프링부트");
+
+                IntStream.rangeClosed(5, 120).forEach(
+                        i -> {
+                            String title = "제목" + i;
+                            String body = "내용" + i;
+                            articleService.write(member2.getId(), title, body);
+                        }
+                );
             }
         };
 //        return args -> {

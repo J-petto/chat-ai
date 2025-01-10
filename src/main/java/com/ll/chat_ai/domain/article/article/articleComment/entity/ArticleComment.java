@@ -1,7 +1,8 @@
-package com.ll.chat_ai.domain.article.article.entity;
+package com.ll.chat_ai.domain.article.article.articleComment.entity;
 
+import com.ll.chat_ai.domain.article.article.entity.Article;
 import com.ll.chat_ai.domain.member.member.entity.Member;
-import com.ll.chat_ai.global.baseEntity.BaseEntity;
+import com.ll.chat_ai.global.jpa.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;

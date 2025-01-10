@@ -1,11 +1,13 @@
 package com.ll.chat_ai.domain.article.article.service;
 
 import com.ll.chat_ai.domain.article.article.entity.Article;
-import com.ll.chat_ai.domain.article.article.entity.ArticleComment;
 import com.ll.chat_ai.domain.article.article.repository.ArticleRepository;
+import com.ll.chat_ai.domain.article.article.articleComment.entity.ArticleComment;
 import com.ll.chat_ai.domain.member.member.entity.Member;
 import com.ll.chat_ai.global.RsData.RsData;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,5 +49,9 @@ public class ArticleService {
 
     public List<Article> findAll() {
         return articleRepository.findAll();
+    }
+
+    public Page<Article> search(List<String> kwTypes, String kw, Pageable pageable) {
+        return articleRepository.search(kwTypes, kw, pageable);
     }
 }
